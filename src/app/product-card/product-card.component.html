@@ -1,0 +1,16 @@
+
+<div class="card h-100">
+    <img [src]="product.thumbnail" class="card-img-top" [alt]="product.title">
+    <div class="card-body">
+      <h5 class="card-title">{{product.title}}</h5>
+      <p class="card-text">{{product.brand}}</p>
+      <p class="card-text">{{product.category}}</p>
+      <p class="card-text text-success"> Price {{product.price}}</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">{{product.description}}</small>
+    </div>
+    <button class="btn btn-success" (click)="increaseCounter()"> Add To Card</button>
+    <button class="btn btn-dark" (click)="redirectToDetails(product.id)"> Details </button>
+  </div>
+ 

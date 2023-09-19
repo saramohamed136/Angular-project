@@ -1,0 +1,37 @@
+<form #loginForm="ngForm" (ngSubmit)="submitLoginForm(loginForm)">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+      name="formLogin"
+       ngModel 
+       required 
+       pattern="saramohamed@yahoo.com"
+        #formLogin="ngModel"/>
+
+      <div *ngIf="formLogin.touched&&formLogin.invalid" id="emailHelp" class="form-text text-danger"> 
+        <small *ngIf="formLogin.errors?.['required']" >
+          email is required 
+        </small>
+        <small *ngIf="formLogin.errors?.['pattern']" >
+          Wrong email format!
+        </small>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" 
+      name="formPass" ngModel required minlength="8" #formPass="ngModel"/>
+
+      <div *ngIf="formPass.touched&&formPass.invalid" id="passHelp" class="form-text text-danger"> 
+        <small *ngIf="formPass.errors?.['required']" >
+          Password is required 
+        </small>
+        <small *ngIf="formPass.errors?.['minlength']" >
+          Password is shot , Min 8
+        </small>
+      </div>
+
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+    <h3 class="my-5 fs-4">Don't have account? <a routerLink="/register">Register</a></h3>
+  </form>

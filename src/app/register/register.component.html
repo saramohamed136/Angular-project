@@ -1,0 +1,71 @@
+<form [formGroup]="registerForm" (ngSubmit)="submitRegisterForm()">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Name</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="name" />
+  
+        <div *ngIf="registerForm.controls['name'].touched && registerForm.controls['name'].invalid" id="passHelp" class="form-text text-danger"> 
+          <small *ngIf="registerForm.controls['name'].errors?.['required']" >
+            Name is required 
+          </small>
+        </div>
+      </div>
+
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+      formControlName="email"/>
+
+      <div *ngIf="registerForm.controls['email'].touched && registerForm.controls['email'].invalid" id="emailHelp" class="form-text text-danger"> 
+        <small *ngIf="registerForm.controls['email'].errors?.['required']" >
+          Email is required 
+        </small>
+        <small *ngIf="registerForm.controls['email'].errors?.['pattern']" >
+          Wrong email format!
+        </small>
+      </div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">User Name</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="userName"/>
+  
+        <div *ngIf="registerForm.controls['userName'].touched && registerForm.controls['userName'].invalid"  id="emailHelp" class="form-text text-danger"> 
+          <small *ngIf="registerForm.controls['userName'].errors?.['required']" >
+            User Name is required 
+          </small>
+          <small *ngIf="registerForm.controls['userName'].errors?.['pattern']" >
+            User Name contain no spaces!
+          </small>
+        </div>
+      </div>
+
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" 
+      formControlName="password"/>
+
+      <div *ngIf="registerForm.controls['password'].touched && registerForm.controls['password'].invalid" id="passHelp" class="form-text text-danger"> 
+        <small *ngIf="registerForm.controls['password'].errors?.['required']" >
+          Password is required 
+        </small>
+        <small *ngIf="registerForm.controls['password'].errors?.['minlength']" >
+          Password is shot , Min 8
+        </small>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Confirm Password</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        formControlName="confirmPassword"/>
+  
+        <div *ngIf="registerForm.controls['confirmPassword'].touched && registerForm.controls['confirmPassword'].invalid" id="emailHelp" class="form-text text-danger"> 
+         <small *ngIf="registerForm.controls['confirmPassword'].errors?.['required']" >
+            Confirm password  is required
+          </small>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success">Register</button>
+    <h3 class="my-5 fs-4">Already have account? <a routerLink="/login">Login</a></h3>
+
+  </form>
